@@ -18,5 +18,8 @@
 3.  在此熟悉了SpringBoot开启的IOC的配置方式
 4.  关于RabbitMQ又get到新技能，比如MessageListenerAdapter，通过适配器将普通的POJO对象变成一个消息处理者，
     连消息的反序列化都做好了
-5.  
+5.  pom中，只有对`spring-boot-starter-amqp`jar的依赖，并没有看到对spring-core相关包的依赖；
+    这是因为的`spring-boot-starter-amqp -> spring-boot-starter -> spring-core`;这种依赖链在SpringBoot
+    中很是流行，比如first-demo本质上是一个spring-web项目，其依赖的关系也是
+    `spring-boot-starter-web -> spring-boot-starter -> spring-core`.
     
