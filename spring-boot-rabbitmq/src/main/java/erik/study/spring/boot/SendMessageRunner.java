@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Runner implements CommandLineRunner {
+public class SendMessageRunner implements CommandLineRunner {
 
-    private final static Logger logger = LoggerFactory.getLogger(Runner.class);
+    private final static Logger logger = LoggerFactory.getLogger(SendMessageRunner.class);
 
     private final RabbitTemplate rabbitTemplate;
     private final Receiver receiver;
 
-    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate) {
+    public SendMessageRunner(Receiver receiver, RabbitTemplate rabbitTemplate) {
         this.receiver = receiver;
         this.rabbitTemplate = rabbitTemplate;
     }
