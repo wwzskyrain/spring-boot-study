@@ -15,7 +15,7 @@ public class TestController {
     }
 
     @Print(value = "printParamAndResult")
-    @GetMapping("getString")
+    @GetMapping(value = "getString")
     public String getString(String src){
         return src;
     }

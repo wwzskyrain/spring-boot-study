@@ -7,6 +7,6 @@ public interface HelloBinding {
 
     String GREETING = "greetingChannel";
 
-    @Input(GREETING)
+    @Input(GREETING)    //此处只是一个声明
     SubscribableChannel greeting();
 }

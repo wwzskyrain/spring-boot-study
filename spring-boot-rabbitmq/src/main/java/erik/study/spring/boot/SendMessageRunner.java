@@ -27,13 +27,16 @@ public class SendMessageRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        logger.info("Sending message...");
+        logger.info("Sending-message start");
 
-        rabbitTemplate.convertAndSend(RabbitMqConfig.topicExchangeName,
-                "foo.bar.baz",
-                "Hello from RabbitMQ!");
+        for (int i = 0; i < 10; i++) {
+            rabbitTemplate.convertAndSend(RabbitMqConfig.topicExchangeName,
+                    "foo.bar.baz",
+                    String.format("welcome to rabbitMQ! erik:[%d]", i));
+            receiver.getLatch().await();
+        }
 
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+        logger.info("Sending-message end.");
     }
 
 }

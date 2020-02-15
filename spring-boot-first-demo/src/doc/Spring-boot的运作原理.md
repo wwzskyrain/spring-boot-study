@@ -10,6 +10,7 @@
         1.  构造比较麻烦的对象，比如参数过多，如远端rpc的实现类对象，还有我们自定义的一些大对象。
         2.  构造成本比较高而且有复用价值的对象，比如RabbitMQ的链接对象、模板对象。
         3.  我们自定义的大对象，比如我们自定义的Util，而哪些小对象，比如XxxDto，就直接在用到的时候直接new就行了
+        4.  【补】从以上三点可看出，能交给IOC控制的，一般都是'函数式对象'，就是他们内部没有状态。当然也有很多有状态的，比如Request级别的、Session级别的。
     3.  IOC如何定位这个配置类呢
         1.  在Spring中，使用`new AnnotationConfigApplicationContext(TestConfiguration.class)`
             由程序指出配置类；
@@ -18,8 +19,8 @@
             `new PackageImport(metadata).getPackageName()，它其实返回了当前主程序类的同级以及子级的包组件`， 
             猜测SpringBoot是在启动类【SpringBoot启动类就是指运行SpringApplication.run的类】所在的目录及其子目录下查找被@Configuration修饰的配置类的。
             但是这个猜测是不正确的；通过实验发现，启动类并不会刻意的去找被Configuration注解的类，而是感知被ComponentScan注解的类；然后根据"组件扫描"去找
-            被Configuration注解的类，这样就找到了spring的配置类了[ComponentScan默认是扫描当前包及其子包]。除了程序中用@Configuration注解的类，SpringBoot还有自动配置类，它们也是SpringBoot开启
-            的IOC的配置类。请见继续看。
+            被Configuration注解的类，这样就找到了spring的配置类了[ComponentScan默认是扫描当前包及其子包]。除了程序中用@Configuration注解的类，SpringBoot还有自动配置类，
+            它们也是SpringBoot开启的IOC的配置类。请见继续看。
     4.  SpringBoot启动的IOC如何自动加载配置的类呢？
         1.  自动加载的效果：首先SpringBoot感知到classpath中有相应的工作类，比如RabbitMQ相关的类，这是就会加载相关的Bean，比如
         2.  如何实现：SpringBoot在启动时会读特定的配置文件WEB-INF/spring-factories.properties，这里面有特定的自动配置类【是配置类的一种，

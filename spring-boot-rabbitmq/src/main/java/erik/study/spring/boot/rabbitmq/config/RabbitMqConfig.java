@@ -24,12 +24,12 @@ public class RabbitMqConfig {
 
     @Bean
     Queue queue() {
-        return new Queue(queueName, false);
+        return new Queue(queueName, true);
     }
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange(topicExchangeName);
+        return new TopicExchange(topicExchangeName, true, false);
     }
 
     @Bean
