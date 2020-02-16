@@ -21,6 +21,7 @@
         <module>spring-boot-restful-web</module>
         <module>spring-boot-retry-demo</module>
         <module>spring-boot-swagger-demo</module>
+        <module>spring-boot-starter-msg</module>
     </modules>
 
     <properties>
