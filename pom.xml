@@ -22,6 +22,10 @@
         <module>spring-boot-retry-demo</module>
         <module>spring-boot-swagger-demo</module>
         <module>spring-boot-starter-msg</module>
+        <module>business-monitor</module>
+        <module>spring-boot-test</module>
+        <module>spring-boot-integration-test</module>
+        <module>spring-boot-test-one</module>
     </modules>
 
     <properties>
