@@ -20,6 +20,7 @@ public class Receiver {
         TimeUnit.SECONDS.sleep(5);
         latch.countDown(); //上一句等了5秒，这里再放开这个'latch'.
         logger.info("Received-message over.");
+
     }
 
     public CountDownLatch getLatch() {
