@@ -22,4 +22,5 @@
     这是因为的`spring-boot-starter-amqp -> spring-boot-starter -> spring-core`;这种依赖链在SpringBoot
     中很是流行，比如first-demo本质上是一个spring-web项目，其依赖的关系也是
     `spring-boot-starter-web -> spring-boot-starter -> spring-core`.
-    
+# 3.本地rabbitmq启动
+1. 在mac上启动rabbitmq
